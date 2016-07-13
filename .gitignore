@@ -1,0 +1,34 @@
+*.csproj.DotSettings
+*.psess
+*.sdf
+*.suo
+*.user
+*.vsp
+*.vspx
+/cov-int/
+/libse/Properties/AssemblyInfo.cs
+/SE*.zip
+/src/Win32Resources/Resources.aps
+/src/Win32Resources/Resources.rc
+/src/Languages/LanguageMaster.xml
+/src/Languages/XmlContentTranslator.exe
+/src/Properties/AssemblyInfo.cs
+/src/TestResults/
+/SubtitleEdit.lzma
+/SubtitleEdit.tar
+/SubtitleEdit.tgz
+/tabspace.exe
+bin/
+obj/
+SubtitleEdit-*-setup.exe
+
+# Visual Studio 2015
+*.ide
+
+# NuGet
+/src/.nuget/NuGet.exe
+/src/.nuget/NuGet.Config
+/src/packages/
+/src/SubtitleEdit.VC.opendb
+/src/SubtitleEdit.VC.VC.opendb
+/src/SubtitleEdit.VC.db
