@@ -13603,6 +13603,9 @@ namespace Nikse.SubtitleEdit.Forms
         private void buttonSetStartTime_Click(object sender, EventArgs e)
         {
             SetStartTime(false);
+            buttonSetStartTime.Enabled = false;
+            buttonInsertNewText.Enabled = true;
+            buttonSetEnd.Enabled = true;
         }
 
         private void SetStartTime(bool adjustEndTime)
@@ -13650,6 +13653,8 @@ namespace Nikse.SubtitleEdit.Forms
 
         private void ButtonSetEndClick(object sender, EventArgs e)
         {
+            buttonSetStartTime.Enabled = true;
+            buttonSetEnd.Enabled = false;
             if (SubtitleListview1.SelectedItems.Count == 1)
             {
                 double videoPosition = mediaPlayer.CurrentPosition;
@@ -13672,7 +13677,8 @@ namespace Nikse.SubtitleEdit.Forms
                 }
                 else
                 {
-                    _subtitle.Paragraphs[index].EndTime = TimeCode.FromSeconds(videoPosition);
+                    //_subtitle.Paragraphs[index].EndTime = TimeCode.FromSeconds(videoPosition);
+                    _subtitle.Paragraphs[index].EndTime = _subtitle.Paragraphs[index].EndTime;
                     if (_subtitle.Paragraphs[index].Duration.TotalMilliseconds < Configuration.Settings.General.SubtitleMinimumDisplayMilliseconds)
                         _subtitle.Paragraphs[index].Duration.TotalMilliseconds = Configuration.Settings.General.SubtitleMinimumDisplayMilliseconds;
                 }
@@ -13683,6 +13689,8 @@ namespace Nikse.SubtitleEdit.Forms
 
         private void ButtonInsertNewTextClick(object sender, EventArgs e)
         {
+            buttonSetStartTime.Enabled = true;
+            buttonInsertNewText.Enabled = false;
             mediaPlayer.Pause();
 
             var newParagraph = InsertNewTextAtVideoPosition();
